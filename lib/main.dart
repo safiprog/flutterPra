@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:safi_day1/home_page.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:safi_day1/pages/home_page.dart';
+import 'package:safi_day1/pages/login_page.dart';
 void main(){
-  runApp(MyApp());
+  runApp(const MyApp());
 
 
 }
@@ -10,8 +12,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: home_page()
+    return  MaterialApp(
+       darkTheme: ThemeData.dark(), 
+       themeMode: ThemeMode.system,
+       theme: ThemeData(
+        primarySwatch: Colors.cyan,
+        fontFamily: GoogleFonts.lato().fontFamily
+       ),
+       initialRoute: "/login",
+       routes: {
+        "/": (context) => const HomePage(),
+        "/login":(context) => const LoginPage()
+       },
+ 
     );
   }
 }
